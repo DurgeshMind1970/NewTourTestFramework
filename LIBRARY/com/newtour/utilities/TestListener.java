@@ -26,30 +26,18 @@ public class TestListener implements ITestListener
 		System.out.println("OnTestStart");
 		
 		String execute=result.getTestContext().getCurrentXmlTest().getParameter("Execute");
-		
+			
 		//extent report
-		try 
-		{	
-			/*ReportUtility.htmlreporter=new ExtentHtmlReporter(PropertyUtility.f_readProperty(PROPERTY.REPORTS)+"\\NewToursTestResult.html");
-			ReportUtility.htmlreporter.setAppendExisting(true);
-			ReportUtility.htmlreporter.config().setDocumentTitle("New Tours Test Result");
-			ReportUtility.htmlreporter.config().setChartVisibilityOnOpen(true);
-			ReportUtility.htmlreporter.config().setReportName("New Tours Test Result");
-			ReportUtility.report=new ExtentReports();
-			ReportUtility.report.attachReporter(ReportUtility.htmlreporter);*/
-			
-			
-			ReportUtility.test= ReportUtility.report.createTest(result.getName());
+		ReportUtility.test= ReportUtility.report.createTest(result.getName());
 		
-			//log4j
+		//log4j
+		try {
 			LogUtility logutility= new LogUtility();
-			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		catch (Exception e) 
-		{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-		}	
+			
 		if(execute.equalsIgnoreCase("YES"))
 			{
 				//write in report
@@ -123,7 +111,10 @@ public class TestListener implements ITestListener
 	@Override
 	public void onFinish(ITestContext context) 
 	{
+		ReportUtility.f_writeResult(LOGSTATUS.INFO, "Test Case Completed");
 		ReportUtility.report.flush();
+		
+		LogUtility.f_writeResults("["+GenericFunctions.f_generateRandomNumber()+"] "+"Test Case Completed");
 	}
 
 }

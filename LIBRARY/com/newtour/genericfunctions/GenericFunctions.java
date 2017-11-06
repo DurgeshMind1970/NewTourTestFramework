@@ -24,8 +24,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.newtour.pages.Welcome;
+import com.newtour.utilities.LogUtility;
 import com.newtour.utilities.PropertyUtility;
 import com.newtour.utilities.ReportUtility;
+import com.newtour.utilities.ReportUtility.LOGSTATUS;
+import com.newtour.utilities.VerifyResults;
 
 public class GenericFunctions 
 {
@@ -58,9 +61,9 @@ public class GenericFunctions
 	 * Created On: 11 October 2017 
 	 *----------------------------------------------------------------------------------------------------*/
 	
-	//@BeforeTest
-	@org.testng.annotations.Parameters("browser")
-	public static void f_launchApp(String browser) 
+	/*@BeforeTest
+	@org.testng.annotations.Parameters("browser")*/
+	public static void f_launchApp(String browser) throws Exception 
 	{
 		try
 		{
@@ -68,7 +71,7 @@ public class GenericFunctions
 			URL=PropertyUtility.f_readProperty(PROPERTY.URL);
 			
 			//step1: open browser
-			StepID="StepID 0";
+			StepID="StepID 1";
 			StepDescription="Open Browser: "+browser;
 			
 			switch(browser.toLowerCase())
@@ -97,8 +100,10 @@ public class GenericFunctions
 			exception="NA";
 			
 			//------------write this in to the log-----------------//
+			VerifyResults.f_isPASS(status, actualResult);
+			LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
 			
-			//step1: open application
+			//step2: open application
 			StepID=f_stepGenerator(StepID);
 			StepDescription="Open Application: "+URL;
 			
@@ -119,11 +124,17 @@ public class GenericFunctions
 				
 			}
 			
-			
+			VerifyResults.f_isPASS(status, actualResult);
+			LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
 		}
 		catch(Exception e)
 		{
+			status="FAIL";
+			actualResult= browser+" Browser has not been opened successfully";
+			exception= e.getMessage();
 			
+			VerifyResults.f_isPASS(status, actualResult+", "+"Exception: "+exception);
+			LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult+", "+"Exception: "+exception);
 		}
 		
 		
@@ -135,17 +146,11 @@ public class GenericFunctions
 	 * 
 	 *-----------------------------------------------------------------------------------------------*/
 	
-	//@AfterTest
+	@AfterTest
 	public static void f_closeApp()
 	{
 		
 				driver.close();
-				/*ReportUtility._report.endTest();
-				LogOperations.f_writeLog("Application has been closed");*/
-				
-				
-			//ExtentReportUtility._test.log(LogStatus.INFO, "Application has been closed");
-			
 			
 	}
 	
