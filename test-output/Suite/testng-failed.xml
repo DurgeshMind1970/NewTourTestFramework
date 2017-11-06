@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <parameter name="Modified By" value=""/>
+  <parameter name="Created On" value="26 October 2017"/>
+  <parameter name="Execute" value="YES"/>
+  <parameter name="browser" value="firefox"/>
+  <parameter name="Modified on" value=""/>
+  <parameter name="Created By" value="Durgesh Imade"/>
+  <listeners>
+    <listener class-name="com.newtour.utilities.SuiteListener"/>
+    <listener class-name="com.newtour.utilities.TestListener"/>
+  </listeners>
+  <test name="Test2(failed)">
+    <parameter name="Modified By" value=""/>
+    <parameter name="Created On" value="26 October 2017"/>
+    <parameter name="Execute" value="NO"/>
+    <parameter name="Modified on" value=""/>
+    <parameter name="Created By" value="Durgesh Imade"/>
+    <classes>
+      <class name="com.newtours.testcases.TC003">
+        <methods>
+          <include name="TC003_jgavcgavc12"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.TC003 -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+  <test name="Test3(failed)">
+    <parameter name="Modified By" value=""/>
+    <parameter name="Created On" value="26 October 2017"/>
+    <parameter name="Execute" value="YES"/>
+    <parameter name="Modified on" value=""/>
+    <parameter name="Created By" value="Durgesh Imade"/>
+    <classes>
+      <class name="com.newtours.testcases.TC002">
+        <methods>
+          <include name="TC002_jgavcgavc"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.TC002 -->
+    </classes>
+  </test> <!-- Test3(failed) -->
+</suite> <!-- Failed suite [Suite] -->

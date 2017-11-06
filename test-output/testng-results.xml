@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="1" failed="1" total="4" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="1077" started-at="2017-11-02T11:27:48Z" finished-at="2017-11-02T11:27:49Z">
+    <groups>
+    </groups>
+    <test name="Initializer" duration-ms="480" started-at="2017-11-02T11:27:48Z" finished-at="2017-11-02T11:27:49Z">
+      <class name="com.newtours.testcases.Initializer">
+        <test-method status="PASS" signature="initializerTest()[pri:0, instance:com.newtours.testcases.Initializer@8e7350]" name="initializerTest" duration-ms="469" started-at="2017-11-02T16:57:48Z" finished-at="2017-11-02T16:57:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializerTest -->
+      </class> <!-- com.newtours.testcases.Initializer -->
+    </test> <!-- Initializer -->
+    <test name="Test1" duration-ms="20" started-at="2017-11-02T11:27:49Z" finished-at="2017-11-02T11:27:49Z">
+      <class name="com.newtours.testcases.TC001">
+        <test-method status="PASS" signature="TC001_abc()[pri:0, instance:com.newtours.testcases.TC001@397ed7]" name="TC001_abc" duration-ms="18" started-at="2017-11-02T16:57:49Z" finished-at="2017-11-02T16:57:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC001_abc -->
+      </class> <!-- com.newtours.testcases.TC001 -->
+    </test> <!-- Test1 -->
+    <test name="Test2" duration-ms="7" started-at="2017-11-02T11:27:49Z" finished-at="2017-11-02T11:27:49Z">
+      <class name="com.newtours.testcases.TC003">
+        <test-method status="SKIP" signature="TC003_jgavcgavc12()[pri:0, instance:com.newtours.testcases.TC003@b9f472]" name="TC003_jgavcgavc12" duration-ms="5" started-at="2017-11-02T16:57:49Z" finished-at="2017-11-02T16:57:49Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[TC003_jgavcgavc12]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: TC003_jgavcgavc12
+	at com.newtour.utilities.TestListener.onTestStart(TestListener.java:64)
+	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1904)
+	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1879)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:685)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC003_jgavcgavc12 -->
+      </class> <!-- com.newtours.testcases.TC003 -->
+    </test> <!-- Test2 -->
+    <test name="Test3" duration-ms="11" started-at="2017-11-02T11:27:49Z" finished-at="2017-11-02T11:27:49Z">
+      <class name="com.newtours.testcases.TC002">
+        <test-method status="FAIL" signature="TC002_jgavcgavc()[pri:0, instance:com.newtours.testcases.TC002@102b3b1]" name="TC002_jgavcgavc" duration-ms="8" started-at="2017-11-02T16:57:49Z" finished-at="2017-11-02T16:57:49Z">
+          <exception class="junit.framework.AssertionFailedError">
+            <message>
+              <![CDATA[expected:<true> but was:<false>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[junit.framework.AssertionFailedError: expected:<true> but was:<false>
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at com.newtours.testcases.TC002.TC002_jgavcgavc(TC002.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- junit.framework.AssertionFailedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC002_jgavcgavc -->
+      </class> <!-- com.newtours.testcases.TC002 -->
+    </test> <!-- Test3 -->
+  </suite> <!-- Suite -->
+</testng-results>

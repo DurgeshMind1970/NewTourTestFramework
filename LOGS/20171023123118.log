@@ -1,0 +1,35 @@
+[20171102032307] Started Test Case: TC001_abc
+[20171102032307] SKIPPED TESTCASE: TC003_jgavcgavc12
+[20171102032307] Started Test Case: TC002_jgavcgavc
+FAIL: : 
+[20171102034031] Started Test Case: TC001_abc
+[20171102034056] SKIPPED TESTCASE: TC003_jgavcgavc12
+[20171102034102] Started Test Case: TC002_jgavcgavc
+FAIL: : 
+[20171102034224] Started Test Case: TC001_abc
+FAIL: : 
+[20171102034225] SKIPPED TESTCASE: TC003_jgavcgavc12
+[20171102034225] Started Test Case: TC002_jgavcgavc
+FAIL: : 
+[20171102040032] Started Test Case: TC001_abc
+[20171102040103] SKIPPED TESTCASE: TC003_jgavcgavc12
+[20171102040110] Started Test Case: TC002_jgavcgavc
+FAIL , : 
+[20171102040226] Started Test Case: TC001_abc
+FAIL , : 
+[20171102040226] SKIPPED TESTCASE: TC003_jgavcgavc12
+[20171102040227] Started Test Case: TC002_jgavcgavc
+FAIL , : 
+[20171102040256] Started Test Case: TC001_abc
+PASS , : 
+FAIL , : 
+[20171102040256] SKIPPED TESTCASE: TC003_jgavcgavc12
+[20171102040256] Started Test Case: TC002_jgavcgavc
+FAIL , : 
+[20171102040554] Started Test Case: TC001_abc
+PASS , : 
+FAIL , : 
+[20171102040554] SKIPPED TESTCASE: TC003_jgavcgavc12
+[20171102040555] Started Test Case: TC002_jgavcgavc
+FAIL , : 
+[20171102045749] Started Test Case: initializerTest
