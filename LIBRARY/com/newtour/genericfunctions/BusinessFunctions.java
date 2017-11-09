@@ -4,11 +4,24 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Hashtable;
 
+import org.openqa.selenium.By;
+
+import com.newtour.genericfunctions.GenericFunctions.EXPORTEDDATASHEET;
 import com.newtour.genericfunctions.GenericFunctions.TESTDATASHEET;
+import com.newtour.pages.FlightFinder;
 import com.newtour.pages.Register;
+import com.newtour.pages.SignOn;
 import com.newtour.utilities.ExcelUtility;
 
 public class BusinessFunctions {
+	
+	/**
+	 * 
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws Exception
+	 */
 	
 	public static Hashtable<String, String> f_enterRegistrationInformation() throws FileNotFoundException, IOException, Exception
 	{
@@ -80,10 +93,62 @@ public class BusinessFunctions {
 		Register.f_clickSubmit();
 
 		
-		if(GenericFunctions.f_verifyPage("").get("status").equalsIgnoreCase("PASS"))
+		if(GenericFunctions.driver.findElement(By.xpath("//font[contains(text(),'Thank you for registering')]")).isDisplayed())
 		{
 			status="PASS";
-			actualResult= "Entered data successfully and "+ExpectedPageName+ " is displayed.";
+			actualResult= "Entered data successfully";
+			
+			_output.put("status", status);
+			_output.put("message", actualResult);
+			
+			//export data to exported data sheet
+			String[] userdata={username, password};
+			ExcelUtility.f_writeExportedData(TESTDATASHEET.Login, 1, userdata);
+			
+		}
+		else
+		{
+			status="FAIL";
+			actualResult= "Not entered data successfully";
+			
+			_output.put("status", status);
+			_output.put("message", actualResult);
+		}
+		
+		return _output;
+	}
+	
+	/**----------------------------------------------------------------------------------------------
+	 * 
+	 * 
+	 *-----------------------------------------------------------------------------------------------
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 * @throws Exception */
+	
+	public static Hashtable<String, String> f_login() throws FileNotFoundException, IOException, Exception
+	{
+		Hashtable<String, String> _output=new Hashtable<String, String>();
+		Hashtable<String, String> result=null;
+		String username,password, status, actualResult, exception;
+		
+		//import data from exported data file
+		username=ExcelUtility.f_readExportedData(EXPORTEDDATASHEET.Login, 1, 0);
+		password=ExcelUtility.f_readExportedData(EXPORTEDDATASHEET.Login, 1, 1);
+		
+		//enter username
+		SignOn.f_enterUsername(username);
+		
+		//enter password
+		SignOn.f_enterPassword(password);
+		
+		//enter login
+		SignOn.f_clickOnLogin();
+		
+		if(FlightFinder.pageTitle.equalsIgnoreCase(GenericFunctions.driver.getTitle()))
+		{
+			status="PASS";
+			actualResult= "Logged in successfully";
 			
 			_output.put("status", status);
 			_output.put("message", actualResult);
@@ -92,13 +157,14 @@ public class BusinessFunctions {
 		else
 		{
 			status="FAIL";
-			actualResult= "Not entered data successfully and "+ExpectedPageName+ " is displayed.";
+			actualResult= "Not logged in successfully";
 			
 			_output.put("status", status);
 			_output.put("message", actualResult);
 		}
 		
+		
 		return _output;
-	}
+	}	
 
 }

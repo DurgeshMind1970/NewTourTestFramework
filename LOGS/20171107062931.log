@@ -1,144 +1,10 @@
-[20171109051712] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-StepID 1, PASS: Successfully clicked on the Register
-PASS , StepID 1: Click on the Register link
-PASS , StepID 1: Click on the Register link
-StepID 1, PASS: Register: Mercury Tours is displayed.
-PASS , StepID 1: Click on the Register link
-StepID 1, PASS: null
-[20171109051732] Test Case Completed
-[20171109051802] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-StepID 1, PASS: Successfully clicked on the Register
-PASS , StepID 1: Click on the Register link
-PASS , StepID 1: Click on the Register link
-StepID 1, PASS: Register: Mercury Tours is displayed.
-PASS , StepID 1: Click on the Register link
-[20171109052714] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-PASS , StepID 1: Click on the Register link
-PASS , StepID 1: Click on the Register link
-[20171109053836] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-PASS , StepID 3: Enter all information on the Registration page
-StepID 3, PASS: null
-[20171109053845] Test Case Completed
-[20171109053926] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-[20171109054200] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-[20171109054450] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-PASS , StepID 3: Enter all information on the Registration page
-StepID 3, PASS: null
-[20171109054502] Test Case Completed
-[20171109054626] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-[20171109055226] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-PASS , StepID 3: Enter all information on the Registration page
-StepID 3, PASS: null
-[20171109055235] Test Case Completed
-[20171109055443] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-[20171109055857] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-PASS , StepID 3: Enter all information on the Registration page
-StepID 3, PASS: null
-[20171109055905] Test Case Completed
-[20171109060100] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-[20171109060447] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-PASS , StepID 3: Enter all information on the Registration page
-PASS, StepID 3: null, Exception: 10
-[20171109060455] Test Case Completed
-[20171109060615] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-StepID 0, PASS: null
-PASS , StepID 1: Click on the Register link
-[20171109060623] Test Case Completed
-[20171109064834] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-PASS , StepID 1: Click on the Register link
-PASS , StepID 2: Verify that Registration page is displayed
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-FAIL , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-FAIL , StepID 3: Enter all information on the Registration page
-[20171109064929] Test Case Completed
-[20171109065019] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: Launch Application
-PASS , StepID 1: Click on the Register link
-PASS , StepID 2: Verify that Registration page is displayed
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-FAIL , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-PASS , StepID 3: Enter all information on the Registration page
-FAIL , StepID 3: Enter all information on the Registration page
-[20171109065101] Test Case Completed
-[20171109070637] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: null
+
+[20171109074407] Started Test Case: tC1_RegisterToTheSite
+PASS , StepID 0: Application has been opened successfully
 PASS , StepID 1: Successfully clicked on the Register
-PASS , StepID 2: null
-PASS , StepID 3: Entered value: f-20171109070700 in the FirstName
-PASS , StepID 3: Entered value: l-20171109070700 in the LastName
-PASS , StepID 3: Entered value: 8888888888 in the Phone
-PASS , StepID 3: Entered value: user@newtour.com in the Email
-PASS , StepID 3: Entered value: Rajeev gandhi Park, Phase 1, Hinjewadi in the Address
-PASS , StepID 3: Entered value: Pune in the City
-PASS , StepID 3: Entered value: 411057 in the Postal Code
-[20171109070823] Started Test Case: tC1_RegisterToTheSite
-PASS , StepID 0: null
-PASS , StepID 1: Successfully clicked on the Register
-PASS , StepID 2: null
-PASS , StepID 3: Entered value: f-20171109070832 in the FirstName
-PASS , StepID 3: Entered value: l-20171109070832 in the LastName
+PASS , StepID 2: Register: Mercury Tours is displayed.
+PASS , StepID 3: Entered value: f-20171109074420 in the FirstName
+PASS , StepID 3: Entered value: l-20171109074420 in the LastName
 PASS , StepID 3: Entered value: 8888888888 in the Phone
 PASS , StepID 3: Entered value: user@newtour.com in the Email
 PASS , StepID 3: Entered value: Rajeev gandhi Park, Phase 1, Hinjewadi in the Address
@@ -146,9 +12,28 @@ PASS , StepID 3: Entered value: Pune in the City
 PASS , StepID 3: Entered value: 411057 in the Postal Code
 PASS , StepID 3: Selected: 'INDIA' in the dropdown Country dropdown
 PASS , StepID 3: Entered value: Maharashtra in the State
-PASS , StepID 3: Entered value: user20171109070832 in the Username
-PASS , StepID 3: Entered value: pass20171109070832 in the Password
-PASS , StepID 3: Entered value: pass20171109070832 in the Confirm Password
+PASS , StepID 3: Entered value: user20171109074420 in the Username
+PASS , StepID 3: Entered value: pass20171109074420 in the Password
+PASS , StepID 3: Entered value: pass20171109074420 in the Confirm Password
 PASS , StepID 3: Successfully clicked on the Submit
-FAIL , StepID 3: Enter all information on the Registration page
-[20171109070837] Test Case Completed
+PASS , StepID 3: Entered data successfully
+[20171109074425] Test Case Completed
+[20171109074533] Started Test Case: tC1_RegisterToTheSite
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Register
+PASS , StepID 2: Register: Mercury Tours is displayed.
+PASS , StepID 3: Entered value: f-20171109074544 in the FirstName
+PASS , StepID 3: Entered value: l-20171109074544 in the LastName
+PASS , StepID 3: Entered value: 8888888888 in the Phone
+PASS , StepID 3: Entered value: user@newtour.com in the Email
+PASS , StepID 3: Entered value: Rajeev gandhi Park, Phase 1, Hinjewadi in the Address
+PASS , StepID 3: Entered value: Pune in the City
+PASS , StepID 3: Entered value: 411057 in the Postal Code
+PASS , StepID 3: Selected: 'INDIA' in the dropdown Country dropdown
+PASS , StepID 3: Entered value: Maharashtra in the State
+PASS , StepID 3: Entered value: user20171109074544 in the Username
+PASS , StepID 3: Entered value: pass20171109074544 in the Password
+PASS , StepID 3: Entered value: pass20171109074544 in the Confirm Password
+PASS , StepID 3: Successfully clicked on the Submit
+PASS , StepID 3: Entered data successfully
+[20171109074549] Test Case Completed
