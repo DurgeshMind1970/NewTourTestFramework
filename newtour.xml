@@ -6,19 +6,18 @@
 	<listener class-name="com.newtour.utilities.TestListener"></listener>
 </listeners>
 
-<parameter name="browser" value="firefox" />
-
+<parameter name="browser" value="chrome" />
+<!-- 
 <test name="Initializer">
 	<parameter name="Created By" value="Durgesh Imade"></parameter>
 	<parameter name="Created On" value="1 November 2017"></parameter>
 	<parameter name="Modified By" value=""></parameter>
 	<parameter name="Modified on" value=""></parameter>
-	<parameter name="Execute" value="YES"></parameter>
-	
+	<parameter name="Execute" value="NO"></parameter>
 	<classes>
 		<class name="com.newtours.testcases.Initializer"></class>
 	</classes>
-</test> <!-- Test -->
+</test> Test -->
 
 <test name="Test1">
 	<parameter name="Created By" value="Durgesh Imade"></parameter>
@@ -26,12 +25,11 @@
 	<parameter name="Modified By" value=""></parameter>
 	<parameter name="Modified on" value=""></parameter>
 	<parameter name="Execute" value="YES"></parameter>
-	
 	<classes>
-		<class name="com.newtours.testcases.TC001"></class>
+		<class name="com.newtours.testcases.TC1_RegisterToTheSite"></class>
 	</classes>
 </test> <!-- Test -->
-
+<!-- 
 <test name="Test2">
 	<parameter name="Created By" value="Durgesh Imade"></parameter>
 	<parameter name="Created On" value="26 October 2017"></parameter>
@@ -42,7 +40,7 @@
 	<classes>
 		<class name="com.newtours.testcases.TC003"></class>
 	</classes>
-</test> <!-- Test -->
+</test> Test
 
 <test name="Test3">
 	<parameter name="Created By" value="Durgesh Imade"></parameter>
@@ -54,6 +52,6 @@
 	<classes>
 		<class name="com.newtours.testcases.TC002"></class>
 	</classes>
-</test> <!-- Test -->
+</test> Test -->
 
 </suite> <!-- Suite -->

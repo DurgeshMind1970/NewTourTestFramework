@@ -8,22 +8,22 @@ import com.newtour.utilities.ReportUtility.LOGSTATUS;
 
 public class VerifyResults extends Assert 
 {
-	public static void f_isPASS(String actualResult, String message) throws Exception
+	public static void f_isPASS(String actualResult, String message)
 	{	
 		if (actualResult.equalsIgnoreCase("PASS")) 
 		{
 			//write in report
-			ReportUtility.f_writeResult(LOGSTATUS.PASS, GenericFunctions.StepID+": "+GenericFunctions.StepDescription);
+			ReportUtility.f_writeResult(LOGSTATUS.PASS, GenericFunctions.StepID+": "+message);
 			
 			//write in log
-			LogUtility.f_writeResults("PASS , "+GenericFunctions.StepID+": "+GenericFunctions.StepDescription);
+			LogUtility.f_writeResults("PASS , "+GenericFunctions.StepID+": "+message);
 		}
 		
 		assertEquals("PASS", actualResult);
 		
 	}
 	
-	public static void f_softIsPass(String actualResult, String message) throws Exception
+	public static void f_softIsPass(String actualResult, String message)
 	{
 		
 		SoftAssert softAssert=new SoftAssert();
@@ -32,18 +32,18 @@ public class VerifyResults extends Assert
 		if (actualResult.equalsIgnoreCase("PASS")) 
 		{
 			//write in report
-			ReportUtility.f_writeResult(LOGSTATUS.PASS, GenericFunctions.StepID+": "+GenericFunctions.StepDescription);
+			ReportUtility.f_writeResult(LOGSTATUS.PASS, GenericFunctions.StepID+": "+message);
 			
 			//write in log
-			LogUtility.f_writeResults("PASS , "+GenericFunctions.StepID+": "+GenericFunctions.StepDescription);
+			LogUtility.f_writeResults("PASS , "+GenericFunctions.StepID+": "+message);
 		}
 		else
 		{
 			//write in report
-			ReportUtility.f_writeResult(LOGSTATUS.FAIL, GenericFunctions.StepID+": "+GenericFunctions.StepDescription);
+			ReportUtility.f_writeResult(LOGSTATUS.FAIL, GenericFunctions.StepID+": "+message);
 			
 			//write in log
-			LogUtility.f_writeResults("FAIL , "+GenericFunctions.StepID+": "+GenericFunctions.StepDescription);
+			LogUtility.f_writeResults("FAIL , "+GenericFunctions.StepID+": "+message);
 		}
 		
 	}
