@@ -3,7 +3,7 @@
 <suite name="Failed suite [Suite]">
   <parameter name="Modified By" value=""/>
   <parameter name="Created On" value="26 October 2017"/>
-  <parameter name="Execute" value="YES"/>
+  <parameter name="Execute" value="NO"/>
   <parameter name="browser" value="chrome"/>
   <parameter name="Modified on" value=""/>
   <parameter name="Created By" value="Durgesh Imade"/>
@@ -11,18 +11,18 @@
     <listener class-name="com.newtour.utilities.SuiteListener"/>
     <listener class-name="com.newtour.utilities.TestListener"/>
   </listeners>
-  <test name="Test1(failed)">
+  <test name="Test2(failed)">
     <parameter name="Modified By" value=""/>
     <parameter name="Created On" value="26 October 2017"/>
-    <parameter name="Execute" value="YES"/>
+    <parameter name="Execute" value="NO"/>
     <parameter name="Modified on" value=""/>
     <parameter name="Created By" value="Durgesh Imade"/>
     <classes>
-      <class name="com.newtours.testcases.TC1_RegisterToTheSite">
+      <class name="com.newtours.testcases.TC2_LoginWithValidCredentials">
         <methods>
-          <include name="tC1_RegisterToTheSite"/>
+          <include name="TC2_loginWithValidCredentials"/>
         </methods>
-      </class> <!-- com.newtours.testcases.TC1_RegisterToTheSite -->
+      </class> <!-- com.newtours.testcases.TC2_LoginWithValidCredentials -->
     </classes>
-  </test> <!-- Test1(failed) -->
+  </test> <!-- Test2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

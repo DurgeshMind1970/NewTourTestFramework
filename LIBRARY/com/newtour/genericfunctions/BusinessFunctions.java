@@ -136,6 +136,9 @@ public class BusinessFunctions {
 		username=ExcelUtility.f_readExportedData(EXPORTEDDATASHEET.Login, 1, 0);
 		password=ExcelUtility.f_readExportedData(EXPORTEDDATASHEET.Login, 1, 1);
 		
+		//create object to initialize 
+		SignOn signon = new SignOn();
+		
 		//enter username
 		SignOn.f_enterUsername(username);
 		
@@ -145,7 +148,9 @@ public class BusinessFunctions {
 		//enter login
 		SignOn.f_clickOnLogin();
 		
-		if(FlightFinder.pageTitle.equalsIgnoreCase(GenericFunctions.driver.getTitle()))
+		result=GenericFunctions.f_verifyPage(FlightFinder.pageTitle);
+		
+		if(result.get("status").equalsIgnoreCase("PASS"))
 		{
 			status="PASS";
 			actualResult= "Logged in successfully";

@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.runners.Parameterized.Parameters;
@@ -277,7 +278,7 @@ public class GenericFunctions
 		{
 			//Assert.assertEquals(ExpectedPageName, ActualPageName);
 			status="PASS";
-			actualResult= ExpectedPageName+ " is displayed.";
+			actualResult= ExpectedPageName+ " page is displayed.";
 			exception="NA";
 			
 			_output.put("status", status);
@@ -295,7 +296,7 @@ public class GenericFunctions
 		{
 			//Assert.assertEquals(ExpectedPageName, ActualPageName);
 			status="FAIL";
-			actualResult= ExpectedPageName+ " is not displayed instead "+ActualPageName+" page is displayed";
+			actualResult= ExpectedPageName+ " page is not displayed instead "+ActualPageName+" page is displayed";
 			exception="NA";
 
 			_output.put("status", status);
@@ -565,4 +566,48 @@ public class GenericFunctions
 	}
 	
 
+	/**
+	 * 
+	 * 
+	 */
+	public static Hashtable<String, String> f_selectRadioButton(List<WebElement> elements, String elementname, String value)
+	{
+		Hashtable<String, String> _output=new Hashtable<String, String>();
+		String status="";
+		String message="";
+		String exception ="";
+		
+		int flag=0;
+		
+		for(WebElement element:elements)
+		{
+			if(element.getAttribute("value").equalsIgnoreCase(value))
+			{
+				element.click();
+				flag=1;
+				break;
+			}
+		}
+		
+		if(flag==1)
+		{
+			status="PASS";
+			message="Selected: '"+value+"' in the radiobutton "+elementname;
+			exception="NA";
+			
+			_output.put("status",status);
+			_output.put("message",message);
+			_output.put("exception",exception);
+		}
+		else
+		{
+			status="FAIL";
+			message="NOT Selected: '"+value+"' in the radiobutton "+elementname;
+			exception="NA";
+		}
+		
+		return _output;
+	}
+	 
+	
 }

@@ -1,10 +1,9 @@
-
-[20171109074407] Started Test Case: tC1_RegisterToTheSite
+[20171110062607] Started Test Case: tC1_RegisterToTheSite
 PASS , StepID 0: Application has been opened successfully
 PASS , StepID 1: Successfully clicked on the Register
 PASS , StepID 2: Register: Mercury Tours is displayed.
-PASS , StepID 3: Entered value: f-20171109074420 in the FirstName
-PASS , StepID 3: Entered value: l-20171109074420 in the LastName
+PASS , StepID 3: Entered value: f-20171110062617 in the FirstName
+PASS , StepID 3: Entered value: l-20171110062617 in the LastName
 PASS , StepID 3: Entered value: 8888888888 in the Phone
 PASS , StepID 3: Entered value: user@newtour.com in the Email
 PASS , StepID 3: Entered value: Rajeev gandhi Park, Phase 1, Hinjewadi in the Address
@@ -12,18 +11,27 @@ PASS , StepID 3: Entered value: Pune in the City
 PASS , StepID 3: Entered value: 411057 in the Postal Code
 PASS , StepID 3: Selected: 'INDIA' in the dropdown Country dropdown
 PASS , StepID 3: Entered value: Maharashtra in the State
-PASS , StepID 3: Entered value: user20171109074420 in the Username
-PASS , StepID 3: Entered value: pass20171109074420 in the Password
-PASS , StepID 3: Entered value: pass20171109074420 in the Confirm Password
+PASS , StepID 3: Entered value: user20171110062617 in the Username
+PASS , StepID 3: Entered value: pass20171110062617 in the Password
+PASS , StepID 3: Entered value: pass20171110062617 in the Confirm Password
 PASS , StepID 3: Successfully clicked on the Submit
 PASS , StepID 3: Entered data successfully
-[20171109074425] Test Case Completed
-[20171109074533] Started Test Case: tC1_RegisterToTheSite
+[20171110062629] Test Case Completed
+[20171110062629] Started Test Case: TC2_loginWithValidCredentials
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Sign On
+PASS , StepID 2: Sign-on: Mercury Tours is displayed.
+PASS , StepID 3: Entered value: user20171110062617 in the Username
+PASS , StepID 3: Entered value: pass20171110062617 in the Password
+PASS , StepID 3: Successfully clicked on the Login
+PASS , StepID 3: Logged in successfully
+[20171110062641] Test Case Completed
+[20171110063409] Started Test Case: tC1_RegisterToTheSite
 PASS , StepID 0: Application has been opened successfully
 PASS , StepID 1: Successfully clicked on the Register
-PASS , StepID 2: Register: Mercury Tours is displayed.
-PASS , StepID 3: Entered value: f-20171109074544 in the FirstName
-PASS , StepID 3: Entered value: l-20171109074544 in the LastName
+PASS , StepID 2: Register: Mercury Tours page is displayed.
+PASS , StepID 3: Entered value: f-20171110063417 in the FirstName
+PASS , StepID 3: Entered value: l-20171110063417 in the LastName
 PASS , StepID 3: Entered value: 8888888888 in the Phone
 PASS , StepID 3: Entered value: user@newtour.com in the Email
 PASS , StepID 3: Entered value: Rajeev gandhi Park, Phase 1, Hinjewadi in the Address
@@ -31,9 +39,11 @@ PASS , StepID 3: Entered value: Pune in the City
 PASS , StepID 3: Entered value: 411057 in the Postal Code
 PASS , StepID 3: Selected: 'INDIA' in the dropdown Country dropdown
 PASS , StepID 3: Entered value: Maharashtra in the State
-PASS , StepID 3: Entered value: user20171109074544 in the Username
-PASS , StepID 3: Entered value: pass20171109074544 in the Password
-PASS , StepID 3: Entered value: pass20171109074544 in the Confirm Password
+PASS , StepID 3: Entered value: user20171110063417 in the Username
+PASS , StepID 3: Entered value: pass20171110063417 in the Password
+PASS , StepID 3: Entered value: pass20171110063417 in the Confirm Password
 PASS , StepID 3: Successfully clicked on the Submit
 PASS , StepID 3: Entered data successfully
-[20171109074549] Test Case Completed
+[20171110063422] Test Case Completed
+[20171110063422] SKIPPED TESTCASE: TC2_loginWithValidCredentials
+[20171110063422] Test Case Completed

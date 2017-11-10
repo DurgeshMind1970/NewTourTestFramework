@@ -18,7 +18,6 @@
 		<class name="com.newtours.testcases.Initializer"></class>
 	</classes>
 </test> Test -->
-
 <test name="Test1">
 	<parameter name="Created By" value="Durgesh Imade"></parameter>
 	<parameter name="Created On" value="26 October 2017"></parameter>
@@ -27,6 +26,17 @@
 	<parameter name="Execute" value="YES"></parameter>
 	<classes>
 		<class name="com.newtours.testcases.TC1_RegisterToTheSite"></class>
+	</classes>
+</test> <!-- Test -->
+
+<test name="Test2">
+	<parameter name="Created By" value="Durgesh Imade"></parameter>
+	<parameter name="Created On" value="26 October 2017"></parameter>
+	<parameter name="Modified By" value=""></parameter>
+	<parameter name="Modified on" value=""></parameter>
+	<parameter name="Execute" value="NO"></parameter>
+	<classes>
+		<class name="com.newtours.testcases.TC2_LoginWithValidCredentials"></class>
 	</classes>
 </test> <!-- Test -->
 <!-- 
