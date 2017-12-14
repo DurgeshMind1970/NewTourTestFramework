@@ -27,6 +27,9 @@ public class Welcome {
 	static WebElement link_SignOn;
 	static String signOn_Link="Sign On";
 	
+	@FindBy(linkText="SIGN-OFF")
+	static WebElement link_SignOff;
+	static String signOff_Link="SIGN-OFF";
 	
 	//Function to click on the Register link
 	public static void f_clickOnRegisterLink() throws Exception
@@ -43,6 +46,12 @@ public class Welcome {
 		VerifyResults.f_isPASS(result.get("status"), result.get("message"));
 	}
 	
+	public static void f_clickOnSignoffLink() throws Exception
+	{
+		Hashtable<String, String> result=null;
+		result=GenericFunctions.f_click(link_SignOff,signOff_Link);
+		VerifyResults.f_isPASS(result.get("status"), result.get("message"));
+	}
 	
 
 }

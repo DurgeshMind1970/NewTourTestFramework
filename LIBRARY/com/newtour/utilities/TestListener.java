@@ -73,14 +73,15 @@ public class TestListener implements ITestListener
 		CaptureScreenshot.f_takeScreenshot(result);
 		
 		//attach screenshot in the report
-		String imagePath="\\SCREENSHOTS\\"+result.getName()+GenericFunctions.StepID+".png";
-		
-		/*try {
+		try
+		{
+			String imagePath=System.getProperty("user.dir")+"\\SCREENSHOTS\\"+result.getName()+GenericFunctions.StepID+".png";
 			ReportUtility.test.addScreenCaptureFromPath(imagePath);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (IOException e)
+		{
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 

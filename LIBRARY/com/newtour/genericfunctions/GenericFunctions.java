@@ -91,8 +91,8 @@ public class GenericFunctions
 		}
 		
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS);
 		
 		driver.get(URL);
 		
@@ -162,7 +162,7 @@ public class GenericFunctions
 	@AfterTest
 	public static void f_closeApp()
 	{
-		//driver.close();
+		driver.close();
 	}
 	
 	/**----------------------------------------------------------------------------------------------

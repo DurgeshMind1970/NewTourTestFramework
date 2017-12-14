@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-skipped">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -53,7 +53,7 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="testlist-Suite">
-                    <span class="test-stats">2 tests</span>
+                    <span class="test-stats">5 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,  1 skipped,  1 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,  1 skipped,  3 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.newtours.testcases.TC3_ProfileEdit" hash-for-method="tC3_ProfileEdit">tC3_ProfileEdit</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title skipped">Skipped methods</span>
@@ -101,7 +115,7 @@
                     <div class="method-list-content skipped suite-Suite">
                       <span>
                         <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.newtours.testcases.TC2_LoginWithValidCredentials" hash-for-method="TC2_loginWithValidCredentials">TC2_loginWithValidCredentials</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.newtours.testcases.Initializer" hash-for-method="initializerTest">initializerTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content skipped suite-Suite -->
@@ -118,6 +132,16 @@
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.newtours.testcases.TC1_RegisterToTheSite" hash-for-method="tC1_RegisterToTheSite">tC1_RegisterToTheSite</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.newtours.testcases.TC2_LoginWithValidCredentials" hash-for-method="tC2_loginWithValidCredentials">tC2_loginWithValidCredentials</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.newtours.testcases.TC4_FindaFlight" hash-for-method="tC4_FindaFlight">tC4_FindaFlight</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
                   </li>
                 </ul>
@@ -130,20 +154,72 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-skipped">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
-              <span class="class-name">com.newtours.testcases.TC2_LoginWithValidCredentials</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.newtours.testcases.TC3_ProfileEdit</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="TC2_loginWithValidCredentials">
-                  </a> <!-- TC2_loginWithValidCredentials -->
-                  <span class="method-name">TC2_loginWithValidCredentials</span>
-                  <div class="stack-trace"><b>"org.testng.SkipException: TC2_loginWithValidCredentials
+                  <a name="tC3_ProfileEdit">
+                  </a> <!-- tC3_ProfileEdit -->
+                  <span class="method-name">tC3_ProfileEdit</span>
+                  <div class="stack-trace"><b>"java.lang.AssertionError: expected [FAIL] but found [PASS]
+	at com.newtour.utilities.VerifyResults.f_isPASS(VerifyResults.java:22)
+	at com.newtours.testcases.TC3_ProfileEdit.tC3_ProfileEdit(TC3_ProfileEdit.java:102)
+... Removed 29 stack frames<br/> java.lang.AssertionError: expected [FAIL] but found [PASS]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:176)
+	at org.testng.Assert.assertEquals(Assert.java:186)
+	at com.newtour.utilities.VerifyResults.f_isPASS(VerifyResults.java:22)
+	at com.newtours.testcases.TC3_ProfileEdit.tC3_ProfileEdit(TC3_ProfileEdit.java:102)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+"</b><br>org.testng.Assert.fail(Assert.java:94)<br>org.testng.Assert.failNotEquals(Assert.java:494)<br>org.testng.Assert.assertEquals(Assert.java:123)<br>org.testng.Assert.assertEquals(Assert.java:176)<br>org.testng.Assert.assertEquals(Assert.java:186)<br>com.newtour.utilities.VerifyResults.f_isPASS(VerifyResults.java:22)<br>com.newtours.testcases.TC3_ProfileEdit.tC3_ProfileEdit(TC3_ProfileEdit.java:102)<br>sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br>sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br>java.lang.reflect.Method.invoke(Unknown Source)<br>org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)<br>org.testng.internal.Invoker.invokeMethod(Invoker.java:714)<br>org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)<br>org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)<br>org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)<br>org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)<br>org.testng.TestRunner.privateRun(TestRunner.java:767)<br>org.testng.TestRunner.run(TestRunner.java:617)<br>org.testng.SuiteRunner.runTest(SuiteRunner.java:334)<br>org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)<br>org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)<br>org.testng.SuiteRunner.run(SuiteRunner.java:240)<br>org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br>org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br>org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)<br>org.testng.TestNG.runSuitesLocally(TestNG.java:1123)<br>org.testng.TestNG.run(TestNG.java:1031)<br>org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)<br>org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)<br>org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)<br>
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.newtours.testcases.Initializer</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="initializerTest">
+                  </a> <!-- initializerTest -->
+                  <span class="method-name">initializerTest</span>
+                  <div class="stack-trace"><b>"org.testng.SkipException: initializerTest
 	at com.newtour.utilities.TestListener.onTestStart(TestListener.java:52)
-... Removed 21 stack frames<br/> org.testng.SkipException: TC2_loginWithValidCredentials
+... Removed 21 stack frames<br/> org.testng.SkipException: initializerTest
 	at com.newtour.utilities.TestListener.onTestStart(TestListener.java:52)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1904)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1879)
@@ -187,6 +263,36 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.newtours.testcases.TC2_LoginWithValidCredentials</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="tC2_loginWithValidCredentials">
+                  </a> <!-- tC2_loginWithValidCredentials -->
+                  <span class="method-name">tC2_loginWithValidCredentials</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.newtours.testcases.TC4_FindaFlight</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="tC4_FindaFlight">
+                  </a> <!-- tC4_FindaFlight -->
+                  <span class="method-name">tC4_FindaFlight</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -202,6 +308,16 @@
     &lt;listener class-name=&quot;com.newtour.utilities.SuiteListener&quot;/&gt;
     &lt;listener class-name=&quot;com.newtour.utilities.TestListener&quot;/&gt;
   &lt;/listeners&gt;
+  &lt;test name=&quot;Initializer&quot;&gt;
+    &lt;parameter name=&quot;Modified By&quot; value=&quot;&quot;/&gt;
+    &lt;parameter name=&quot;Created On&quot; value=&quot;1 November 2017&quot;/&gt;
+    &lt;parameter name=&quot;Execute&quot; value=&quot;NO&quot;/&gt;
+    &lt;parameter name=&quot;Modified on&quot; value=&quot;&quot;/&gt;
+    &lt;parameter name=&quot;Created By&quot; value=&quot;Durgesh Imade&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.newtours.testcases.Initializer&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Initializer --&gt;
   &lt;test name=&quot;Test1&quot;&gt;
     &lt;parameter name=&quot;Modified By&quot; value=&quot;&quot;/&gt;
     &lt;parameter name=&quot;Created On&quot; value=&quot;26 October 2017&quot;/&gt;
@@ -215,13 +331,33 @@
   &lt;test name=&quot;Test2&quot;&gt;
     &lt;parameter name=&quot;Modified By&quot; value=&quot;&quot;/&gt;
     &lt;parameter name=&quot;Created On&quot; value=&quot;26 October 2017&quot;/&gt;
-    &lt;parameter name=&quot;Execute&quot; value=&quot;NO&quot;/&gt;
+    &lt;parameter name=&quot;Execute&quot; value=&quot;YES&quot;/&gt;
     &lt;parameter name=&quot;Modified on&quot; value=&quot;&quot;/&gt;
     &lt;parameter name=&quot;Created By&quot; value=&quot;Durgesh Imade&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.newtours.testcases.TC2_LoginWithValidCredentials&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test2 --&gt;
+  &lt;test name=&quot;Test3&quot;&gt;
+    &lt;parameter name=&quot;Modified By&quot; value=&quot;&quot;/&gt;
+    &lt;parameter name=&quot;Created On&quot; value=&quot;26 October 2017&quot;/&gt;
+    &lt;parameter name=&quot;Execute&quot; value=&quot;YES&quot;/&gt;
+    &lt;parameter name=&quot;Modified on&quot; value=&quot;&quot;/&gt;
+    &lt;parameter name=&quot;Created By&quot; value=&quot;Durgesh Imade&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.newtours.testcases.TC3_ProfileEdit&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test3 --&gt;
+  &lt;test name=&quot;Test4&quot;&gt;
+    &lt;parameter name=&quot;Modified By&quot; value=&quot;&quot;/&gt;
+    &lt;parameter name=&quot;Created On&quot; value=&quot;26 October 2017&quot;/&gt;
+    &lt;parameter name=&quot;Execute&quot; value=&quot;YES&quot;/&gt;
+    &lt;parameter name=&quot;Modified on&quot; value=&quot;&quot;/&gt;
+    &lt;parameter name=&quot;Created By&quot; value=&quot;Durgesh Imade&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.newtours.testcases.TC4_FindaFlight&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test4 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -233,10 +369,19 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
+                <span class="test-name">Initializer (1 class)</span>
+              </li>
+              <li>
                 <span class="test-name">Test1 (1 class)</span>
               </li>
               <li>
                 <span class="test-name">Test2 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test3 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test4 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -262,20 +407,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'tC1_RegisterToTheSite')
-data.setCell(0, 2, 'com.newtours.testcases.TC1_RegisterToTheSite')
-data.setCell(0, 3, 12878);
+data.setCell(0, 1, 'tC3_ProfileEdit')
+data.setCell(0, 2, 'com.newtours.testcases.TC3_ProfileEdit')
+data.setCell(0, 3, 65175);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'TC2_loginWithValidCredentials')
-data.setCell(1, 2, 'com.newtours.testcases.TC2_LoginWithValidCredentials')
-data.setCell(1, 3, 4);
+data.setCell(1, 1, 'tC1_RegisterToTheSite')
+data.setCell(1, 2, 'com.newtours.testcases.TC1_RegisterToTheSite')
+data.setCell(1, 3, 25869);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'tC4_FindaFlight')
+data.setCell(2, 2, 'com.newtours.testcases.TC4_FindaFlight')
+data.setCell(2, 3, 12908);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'tC2_loginWithValidCredentials')
+data.setCell(3, 2, 'com.newtours.testcases.TC2_LoginWithValidCredentials')
+data.setCell(3, 3, 9587);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'initializerTest')
+data.setCell(4, 2, 'com.newtours.testcases.Initializer')
+data.setCell(4, 3, 112);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 12 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -301,11 +458,59 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
+              <div class="chronological-class-name">com.newtours.testcases.Initializer</div> <!-- chronological-class-name -->
+              <div class="configuration-test after">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">f_closeApp</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
               <div class="chronological-class-name">com.newtours.testcases.TC1_RegisterToTheSite</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">tC1_RegisterToTheSite</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-start">312 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">f_closeApp</span>
+                <span class="method-start">26181 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.newtours.testcases.TC2_LoginWithValidCredentials</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">tC2_loginWithValidCredentials</span>
+                <span class="method-start">26337 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">f_closeApp</span>
+                <span class="method-start">35925 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.newtours.testcases.TC3_ProfileEdit</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">tC3_ProfileEdit</span>
+                <span class="method-start">36075 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">f_closeApp</span>
+                <span class="method-start">101772 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.newtours.testcases.TC4_FindaFlight</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">tC4_FindaFlight</span>
+                <span class="method-start">101928 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">f_closeApp</span>
+                <span class="method-start">114837 ms</span>
+              </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

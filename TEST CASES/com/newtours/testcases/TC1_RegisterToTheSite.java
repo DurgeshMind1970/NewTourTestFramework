@@ -13,7 +13,7 @@ import com.newtour.utilities.ExcelUtility;
 import com.newtour.utilities.LogUtility;
 import com.newtour.utilities.VerifyResults;
 
-public class TC1_RegisterToTheSite 
+public class TC1_RegisterToTheSite extends GenericFunctions
 {
 	Hashtable<String, String> result=null;
 	
@@ -55,13 +55,10 @@ public class TC1_RegisterToTheSite
 		} 
 		catch (Exception e) 
 		{
-			VerifyResults.f_isPASS(result.get("status"), result.get("actualResult"));
-			LogUtility.f_writeResults(result.get("status")+", "+GenericFunctions.StepID+": "+result.get("message")+", Exception: "+e.getLocalizedMessage());
+			VerifyResults.f_isPASS("FAIL", GenericFunctions.StepDescription);
+			LogUtility.f_writeResults("FAIL"+", "+GenericFunctions.StepID+": "+GenericFunctions.StepDescription+", Exception: "+e.getLocalizedMessage());
+		
 		}
-		
-		
-		
-		
 		
 	}
 

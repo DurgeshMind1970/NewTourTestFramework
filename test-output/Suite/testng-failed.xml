@@ -3,7 +3,7 @@
 <suite name="Failed suite [Suite]">
   <parameter name="Modified By" value=""/>
   <parameter name="Created On" value="26 October 2017"/>
-  <parameter name="Execute" value="NO"/>
+  <parameter name="Execute" value="YES"/>
   <parameter name="browser" value="chrome"/>
   <parameter name="Modified on" value=""/>
   <parameter name="Created By" value="Durgesh Imade"/>
@@ -11,18 +11,74 @@
     <listener class-name="com.newtour.utilities.SuiteListener"/>
     <listener class-name="com.newtour.utilities.TestListener"/>
   </listeners>
-  <test name="Test2(failed)">
+  <test name="Initializer(failed)">
     <parameter name="Modified By" value=""/>
-    <parameter name="Created On" value="26 October 2017"/>
+    <parameter name="Created On" value="1 November 2017"/>
     <parameter name="Execute" value="NO"/>
     <parameter name="Modified on" value=""/>
     <parameter name="Created By" value="Durgesh Imade"/>
     <classes>
+      <class name="com.newtours.testcases.Initializer">
+        <methods>
+          <include name="f_closeApp"/>
+          <include name="initializerTest"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.Initializer -->
+      <class name="com.newtours.testcases.TC1_RegisterToTheSite">
+        <methods>
+          <include name="f_closeApp"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.TC1_RegisterToTheSite -->
       <class name="com.newtours.testcases.TC2_LoginWithValidCredentials">
         <methods>
-          <include name="TC2_loginWithValidCredentials"/>
+          <include name="f_closeApp"/>
         </methods>
       </class> <!-- com.newtours.testcases.TC2_LoginWithValidCredentials -->
+      <class name="com.newtours.testcases.TC3_ProfileEdit">
+        <methods>
+          <include name="f_closeApp"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.TC3_ProfileEdit -->
+      <class name="com.newtours.testcases.TC4_FindaFlight">
+        <methods>
+          <include name="f_closeApp"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.TC4_FindaFlight -->
     </classes>
-  </test> <!-- Test2(failed) -->
+  </test> <!-- Initializer(failed) -->
+  <test name="Test3(failed)">
+    <parameter name="Modified By" value=""/>
+    <parameter name="Created On" value="26 October 2017"/>
+    <parameter name="Execute" value="YES"/>
+    <parameter name="Modified on" value=""/>
+    <parameter name="Created By" value="Durgesh Imade"/>
+    <classes>
+      <class name="com.newtours.testcases.Initializer">
+        <methods>
+          <include name="f_closeApp"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.Initializer -->
+      <class name="com.newtours.testcases.TC1_RegisterToTheSite">
+        <methods>
+          <include name="f_closeApp"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.TC1_RegisterToTheSite -->
+      <class name="com.newtours.testcases.TC3_ProfileEdit">
+        <methods>
+          <include name="f_closeApp"/>
+          <include name="tC3_ProfileEdit"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.TC3_ProfileEdit -->
+      <class name="com.newtours.testcases.TC2_LoginWithValidCredentials">
+        <methods>
+          <include name="f_closeApp"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.TC2_LoginWithValidCredentials -->
+      <class name="com.newtours.testcases.TC4_FindaFlight">
+        <methods>
+          <include name="f_closeApp"/>
+        </methods>
+      </class> <!-- com.newtours.testcases.TC4_FindaFlight -->
+    </classes>
+  </test> <!-- Test3(failed) -->
 </suite> <!-- Failed suite [Suite] -->

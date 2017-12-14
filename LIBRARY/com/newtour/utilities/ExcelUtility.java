@@ -92,6 +92,26 @@ public class ExcelUtility
 		return data;
 	}
 	
+	
+	public static String[] f_readMultipleExportedData(EXPORTEDDATASHEET sheetname, int row, int columns) throws FileNotFoundException, IOException
+	{
+		String[] data=new String[columns];
+		
+		workbook=new XSSFWorkbook(PropertyUtility.f_readProperty(PROPERTY.TESTDATA));
+		sheet=workbook.getSheet(sheetname.toString());
+		_row=sheet.getRow(row);
+		for(int i=0; i<columns;i++)
+		{
+			_cell=null;
+			_cell=_row.getCell(i);
+			data[i]=_cell.getStringCellValue();
+			
+		}
+		
+		return data;
+	}
+	
+	
 	public static void main(String[] a) throws FileNotFoundException, IOException
 	{
 		System.out.println(ExcelUtility.f_readTestData(TESTDATASHEET.Login, 0, 0));

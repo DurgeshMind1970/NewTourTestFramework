@@ -13,12 +13,12 @@ import com.newtour.utilities.ExcelUtility;
 import com.newtour.utilities.LogUtility;
 import com.newtour.utilities.VerifyResults;
 
-public class TC2_LoginWithValidCredentials 
+public class TC2_LoginWithValidCredentials extends GenericFunctions
 {
 	Hashtable<String, String> result=null;
 	
 	@Test
-	public void TC2_loginWithValidCredentials() 
+	public void tC2_loginWithValidCredentials() 
 	{
 		String username="";
 		String password="";
@@ -57,8 +57,8 @@ public class TC2_LoginWithValidCredentials
 		}
 		catch(Exception e)
 		{
-			VerifyResults.f_isPASS(result.get("status"), result.get("actualResult"));
-			LogUtility.f_writeResults(result.get("status")+", "+GenericFunctions.StepID+": "+result.get("message")+", Exception: "+e.getLocalizedMessage());
+			VerifyResults.f_isPASS("FAIL", GenericFunctions.StepDescription);
+			LogUtility.f_writeResults("FAIL"+", "+GenericFunctions.StepID+": "+GenericFunctions.StepDescription+", Exception: "+e.getLocalizedMessage());
 	
 		}
 		
