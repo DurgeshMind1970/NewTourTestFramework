@@ -17,7 +17,7 @@ public class CaptureScreenshot extends GenericFunctions
 {
 	public static void f_takeScreenshot(ITestResult result)
 	{
-			/*TakesScreenshot ts=(TakesScreenshot)driver;
+			TakesScreenshot ts=(TakesScreenshot)driver;
 			
 			File source=ts.getScreenshotAs(OutputType.FILE);
 			 try 
@@ -28,7 +28,7 @@ public class CaptureScreenshot extends GenericFunctions
 			 {
 					LogUtility.f_writeResults(GenericFunctions.StepID +" "+GenericFunctions.StepDescription+", "+",  Exception any:"+e.getMessage());
 					ReportUtility.f_writeResult(LOGSTATUS.FAIL, "FAIL: "+GenericFunctions.StepDescription+", "+",  Exception any:"+e.getMessage());
-			 }*/
+			 }
 			 
 			 
 	}

@@ -1,36 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="1" total="4" passed="2">
+<testng-results skipped="1" failed="1" total="5" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="1077" started-at="2017-11-02T11:27:48Z" finished-at="2017-11-02T11:27:49Z">
+  <suite name="Suite" duration-ms="115186" started-at="2017-12-14T11:34:52Z" finished-at="2017-12-14T11:36:47Z">
     <groups>
     </groups>
-    <test name="Initializer" duration-ms="480" started-at="2017-11-02T11:27:48Z" finished-at="2017-11-02T11:27:49Z">
+    <test name="Initializer" duration-ms="142" started-at="2017-12-14T11:34:52Z" finished-at="2017-12-14T11:34:52Z">
       <class name="com.newtours.testcases.Initializer">
-        <test-method status="PASS" signature="initializerTest()[pri:0, instance:com.newtours.testcases.Initializer@8e7350]" name="initializerTest" duration-ms="469" started-at="2017-11-02T16:57:48Z" finished-at="2017-11-02T16:57:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializerTest -->
-      </class> <!-- com.newtours.testcases.Initializer -->
-    </test> <!-- Initializer -->
-    <test name="Test1" duration-ms="20" started-at="2017-11-02T11:27:49Z" finished-at="2017-11-02T11:27:49Z">
-      <class name="com.newtours.testcases.TC001">
-        <test-method status="PASS" signature="TC001_abc()[pri:0, instance:com.newtours.testcases.TC001@397ed7]" name="TC001_abc" duration-ms="18" started-at="2017-11-02T16:57:49Z" finished-at="2017-11-02T16:57:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC001_abc -->
-      </class> <!-- com.newtours.testcases.TC001 -->
-    </test> <!-- Test1 -->
-    <test name="Test2" duration-ms="7" started-at="2017-11-02T11:27:49Z" finished-at="2017-11-02T11:27:49Z">
-      <class name="com.newtours.testcases.TC003">
-        <test-method status="SKIP" signature="TC003_jgavcgavc12()[pri:0, instance:com.newtours.testcases.TC003@b9f472]" name="TC003_jgavcgavc12" duration-ms="5" started-at="2017-11-02T16:57:49Z" finished-at="2017-11-02T16:57:49Z">
+        <test-method status="SKIP" signature="initializerTest()[pri:0, instance:com.newtours.testcases.Initializer@e26948]" name="initializerTest" duration-ms="112" started-at="2017-12-14T17:04:52Z" finished-at="2017-12-14T17:04:52Z">
           <exception class="org.testng.SkipException">
             <message>
-              <![CDATA[TC003_jgavcgavc12]]>
+              <![CDATA[initializerTest]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.testng.SkipException: TC003_jgavcgavc12
-	at com.newtour.utilities.TestListener.onTestStart(TestListener.java:64)
+              <![CDATA[org.testng.SkipException: initializerTest
+	at com.newtour.utilities.TestListener.onTestStart(TestListener.java:52)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1904)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1879)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:685)
@@ -57,24 +41,82 @@
           </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC003_jgavcgavc12 -->
-      </class> <!-- com.newtours.testcases.TC003 -->
+        </test-method> <!-- initializerTest -->
+        <test-method status="FAIL" signature="f_closeApp()[pri:0, instance:com.newtours.testcases.Initializer@e26948]" name="f_closeApp" is-config="true" duration-ms="0" started-at="2017-12-14T17:04:52Z" finished-at="2017-12-14T17:04:52Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.newtour.genericfunctions.GenericFunctions.f_closeApp(GenericFunctions.java:165)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.TestRunner.afterRun(TestRunner.java:1021)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f_closeApp -->
+      </class> <!-- com.newtours.testcases.Initializer -->
+    </test> <!-- Initializer -->
+    <test name="Test1" duration-ms="25931" started-at="2017-12-14T11:34:53Z" finished-at="2017-12-14T11:35:19Z">
+      <class name="com.newtours.testcases.TC1_RegisterToTheSite">
+        <test-method status="PASS" signature="tC1_RegisterToTheSite()[pri:0, instance:com.newtours.testcases.TC1_RegisterToTheSite@1c20538]" name="tC1_RegisterToTheSite" duration-ms="25869" started-at="2017-12-14T17:04:53Z" finished-at="2017-12-14T17:05:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tC1_RegisterToTheSite -->
+        <test-method status="PASS" signature="f_closeApp()[pri:0, instance:com.newtours.testcases.TC1_RegisterToTheSite@1c20538]" name="f_closeApp" is-config="true" duration-ms="62" started-at="2017-12-14T17:05:19Z" finished-at="2017-12-14T17:05:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f_closeApp -->
+      </class> <!-- com.newtours.testcases.TC1_RegisterToTheSite -->
+    </test> <!-- Test1 -->
+    <test name="Test2" duration-ms="9676" started-at="2017-12-14T11:35:19Z" finished-at="2017-12-14T11:35:28Z">
+      <class name="com.newtours.testcases.TC2_LoginWithValidCredentials">
+        <test-method status="PASS" signature="tC2_loginWithValidCredentials()[pri:0, instance:com.newtours.testcases.TC2_LoginWithValidCredentials@ef9176]" name="tC2_loginWithValidCredentials" duration-ms="9587" started-at="2017-12-14T17:05:19Z" finished-at="2017-12-14T17:05:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tC2_loginWithValidCredentials -->
+        <test-method status="PASS" signature="f_closeApp()[pri:0, instance:com.newtours.testcases.TC2_LoginWithValidCredentials@ef9176]" name="f_closeApp" is-config="true" duration-ms="88" started-at="2017-12-14T17:05:28Z" finished-at="2017-12-14T17:05:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f_closeApp -->
+      </class> <!-- com.newtours.testcases.TC2_LoginWithValidCredentials -->
     </test> <!-- Test2 -->
-    <test name="Test3" duration-ms="11" started-at="2017-11-02T11:27:49Z" finished-at="2017-11-02T11:27:49Z">
-      <class name="com.newtours.testcases.TC002">
-        <test-method status="FAIL" signature="TC002_jgavcgavc()[pri:0, instance:com.newtours.testcases.TC002@102b3b1]" name="TC002_jgavcgavc" duration-ms="8" started-at="2017-11-02T16:57:49Z" finished-at="2017-11-02T16:57:49Z">
-          <exception class="junit.framework.AssertionFailedError">
+    <test name="Test3" duration-ms="65807" started-at="2017-12-14T11:35:28Z" finished-at="2017-12-14T11:36:34Z">
+      <class name="com.newtours.testcases.TC3_ProfileEdit">
+        <test-method status="FAIL" signature="tC3_ProfileEdit()[pri:0, instance:com.newtours.testcases.TC3_ProfileEdit@159c4b8]" name="tC3_ProfileEdit" duration-ms="65175" started-at="2017-12-14T17:05:28Z" finished-at="2017-12-14T17:06:34Z">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected:<true> but was:<false>]]>
+              <![CDATA[expected [FAIL] but found [PASS]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[junit.framework.AssertionFailedError: expected:<true> but was:<false>
-	at junit.framework.Assert.fail(Assert.java:50)
-	at junit.framework.Assert.failNotEquals(Assert.java:287)
-	at junit.framework.Assert.assertEquals(Assert.java:67)
-	at junit.framework.Assert.assertEquals(Assert.java:147)
-	at junit.framework.Assert.assertEquals(Assert.java:153)
-	at com.newtours.testcases.TC002.TC002_jgavcgavc(TC002.java:17)
+              <![CDATA[java.lang.AssertionError: expected [FAIL] but found [PASS]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:176)
+	at org.testng.Assert.assertEquals(Assert.java:186)
+	at com.newtour.utilities.VerifyResults.f_isPASS(VerifyResults.java:22)
+	at com.newtours.testcases.TC3_ProfileEdit.tC3_ProfileEdit(TC3_ProfileEdit.java:102)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -101,11 +143,27 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
 ]]>
             </full-stacktrace>
-          </exception> <!-- junit.framework.AssertionFailedError -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC002_jgavcgavc -->
-      </class> <!-- com.newtours.testcases.TC002 -->
+        </test-method> <!-- tC3_ProfileEdit -->
+        <test-method status="PASS" signature="f_closeApp()[pri:0, instance:com.newtours.testcases.TC3_ProfileEdit@159c4b8]" name="f_closeApp" is-config="true" duration-ms="110" started-at="2017-12-14T17:06:34Z" finished-at="2017-12-14T17:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f_closeApp -->
+      </class> <!-- com.newtours.testcases.TC3_ProfileEdit -->
     </test> <!-- Test3 -->
+    <test name="Test4" duration-ms="13131" started-at="2017-12-14T11:36:34Z" finished-at="2017-12-14T11:36:47Z">
+      <class name="com.newtours.testcases.TC4_FindaFlight">
+        <test-method status="PASS" signature="tC4_FindaFlight()[pri:0, instance:com.newtours.testcases.TC4_FindaFlight@1993335]" name="tC4_FindaFlight" duration-ms="12908" started-at="2017-12-14T17:06:34Z" finished-at="2017-12-14T17:06:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tC4_FindaFlight -->
+        <test-method status="PASS" signature="f_closeApp()[pri:0, instance:com.newtours.testcases.TC4_FindaFlight@1993335]" name="f_closeApp" is-config="true" duration-ms="222" started-at="2017-12-14T17:06:47Z" finished-at="2017-12-14T17:06:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f_closeApp -->
+      </class> <!-- com.newtours.testcases.TC4_FindaFlight -->
+    </test> <!-- Test4 -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -73,9 +73,21 @@ public class ReportUtility
 		test.log(Status.FAIL, "This is failed");
 		
 		test.addScreenCaptureFromPath("D:\\MediaFiles\\status\\HLC_TC46-GrantStudentAccessNotDisplayed.png");
-		
+		test.log(Status.FAIL, "This is failed");
 		report.flush();
 		
+		
+		test = report.createTest("MyTest211");
+		
+		test.log(Status.PASS, "This is passed");
+		test.log(Status.PASS, "This is passed");
+		test.log(Status.PASS, "This is passed");
+		test.log(Status.PASS, "This is passed");
+		test.log(Status.FAIL, "This is failed");
+		
+		test.addScreenCaptureFromPath("D:\\MediaFiles\\status\\HLC_TC46-GrantStudentAccessNotDisplayed.png");
+		test.log(Status.FAIL, "This is failed");
+		report.flush();
 		System.out.println("ended...");
 		
 	}

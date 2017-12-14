@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.runners.Parameterized.Parameters;
@@ -24,8 +25,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.newtour.pages.Welcome;
+import com.newtour.utilities.LogUtility;
 import com.newtour.utilities.PropertyUtility;
 import com.newtour.utilities.ReportUtility;
+import com.newtour.utilities.ReportUtility.LOGSTATUS;
+import com.newtour.utilities.VerifyResults;
 
 public class GenericFunctions 
 {
@@ -58,95 +62,107 @@ public class GenericFunctions
 	 * Created On: 11 October 2017 
 	 *----------------------------------------------------------------------------------------------------*/
 	
-	//@BeforeTest
-	@org.testng.annotations.Parameters("browser")
-	public static void f_launchApp(String browser) 
+	/*@BeforeTest
+	@org.testng.annotations.Parameters("browser")*/
+	public static Hashtable<String, String> f_launchApp(String browser) throws Exception 
 	{
-		try
+		Hashtable<String, String> output=new Hashtable<String, String>();
+		
+		// Read required test data
+		URL=PropertyUtility.f_readProperty(PROPERTY.URL);
+		
+		//step1: open browser
+		
+		switch(browser.toLowerCase())
 		{
-			// Read required test data
-			URL=PropertyUtility.f_readProperty(PROPERTY.URL);
-			
-			//step1: open browser
-			StepID="StepID 0";
-			StepDescription="Open Browser: "+browser;
-			
-			switch(browser.toLowerCase())
-			{
-				case "firefox":
-								driver=new FirefoxDriver();
-								break;
+			case "firefox":
+							driver=new FirefoxDriver();
+							break;
 
-				case "chrome":
-								System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\DRIVERS\\chromedriver.exe");
-								driver=new ChromeDriver();
-								break;
-				case "ie":
-								System.setProperty("webdriver.IE.driver", System.getProperty("user.dir")+"\\DRIVERS\\chromedriver.exe");
-								driver=new InternetExplorerDriver();
-								break;
-				
-			}
+			case "chrome":
+							System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\DRIVERS\\chromedriver.exe");
+							driver=new ChromeDriver();
+							break;
+			case "ie":
+							System.setProperty("webdriver.IE.driver", System.getProperty("user.dir")+"\\DRIVERS\\chromedriver.exe");
+							driver=new InternetExplorerDriver();
+							break;
 			
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-			
+		}
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS);
+		
+		driver.get(URL);
+		
+		//check if any other page is displayed then 
+		f_goToApplication();
+		
+		//verify if application is launched successfully or not
+		if(Welcome.pageTitle.equalsIgnoreCase(driver.getTitle()))
+		{
 			status="PASS";
-			actualResult= browser+" Browser has been opened successfully";
+			actualResult= "Application has been opened successfully";
 			exception="NA";
 			
-			//------------write this in to the log-----------------//
-			
-			//step1: open application
-			StepID=f_stepGenerator(StepID);
-			StepDescription="Open Application: "+URL;
-			
-			driver.get(URL);
-			
-			//verify if application is launched successfully or not
-			if(Welcome.pageTitle.equalsIgnoreCase(driver.getTitle()))
-			{
-				status="PASS";
-				actualResult= browser+" Browser has been opened successfully";
-				exception="NA";
-			}
-			else
-			{
-				status="FAIL";
-				actualResult= browser+" Browser has not been opened successfully";
-				exception="NA";
-				
-			}
-			
+			output.put("status", status);
+			output.put("message", actualResult);
+			output.put("exception", exception);
 			
 		}
-		catch(Exception e)
+		else
 		{
+			status="FAIL";
+			actualResult= "Application has not been opened successfully";
+			exception="NA";
+			
+			output.put("status", status);
+			output.put("message", actualResult);
+			output.put("exception", exception);
 			
 		}
 		
-		
+	
+	return output;
 		
 	}
 	
 	/**----------------------------------------------------------------------------------------------
 	 * 
 	 * 
+	 *
+	 */
+	private static void f_goToApplication() 
+	{
+		if(driver.getTitle().equalsIgnoreCase("Welcome To Zscaler Directory Authentication"))
+		{
+			if (driver.findElement(By.id("username_input")).isDisplayed())
+			{
+				driver.findElement(By.id("username_input")).sendKeys("durgesh.imade@mindtree.com");
+				driver.findElement(By.name("lsubmit")).click();
+			}
+			
+			if(driver.findElement(By.id("userNameInput")).isDisplayed())
+			{
+				driver.findElement(By.id("userNameInput")).sendKeys("M1021970@mindtree.com");
+				//passwordInput
+				driver.findElement(By.id("passwordInput")).sendKeys("MyPass@2026");
+				//submitButton
+				driver.findElement(By.id("submitButton")).click();
+			}
+		}
+	}
+
+	/**----------------------------------------------------------------------------------------------
+	 * 
+	 * 
 	 *-----------------------------------------------------------------------------------------------*/
 	
-	//@AfterTest
+	@AfterTest
 	public static void f_closeApp()
 	{
-		
-				driver.close();
-				/*ReportUtility._report.endTest();
-				LogOperations.f_writeLog("Application has been closed");*/
-				
-				
-			//ExtentReportUtility._test.log(LogStatus.INFO, "Application has been closed");
-			
-			
+		driver.close();
 	}
 	
 	/**----------------------------------------------------------------------------------------------
@@ -156,62 +172,46 @@ public class GenericFunctions
 	public static Hashtable<String, String> f_enterText(WebElement Element, String ElementName ,String Value)
 	{
 		Hashtable<String, String> _output=new Hashtable<String, String>();
-		try
+		
+		if(Element.isDisplayed() && Element.isEnabled())
 		{
-			if(Element.isDisplayed() && Element.isEnabled())
-			{
-				Element.sendKeys(Value);
-				status="PASS";
-				actualResult="Entered value: "+Value+" in the "+ElementName;
-				exception="NA";
-				
-				_output.put("status", status);
-				_output.put("message", actualResult);
-				_output.put("exception", exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+", "+_output.get("message")+",  Exception any:"+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.PASS.toString(),actualResult);
-				//ExtentReportUtility._test.log(LogStatus.PASS, _actualResult);
-				//Assert.assertEquals("PAAS", status);
-				return _output;
-				//return true;
-			}
-			else
-			{
-				status="FAIL";
-				actualResult="Could not Enter value: "+Value+" in the "+ElementName;
-				exception="NA";
-				
-				_output.put("status", status);
-				_output.put("message", actualResult);
-				_output.put("exception", exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+", "+_output.get("message")+",  Exception any:"+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+actualResult);
-				
-				//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+_actualResult);
-				//Assert.assertEquals("PAAS", status);
-				return _output;
-			}
-		}
-		catch(Exception e)
-		{
-			status="FAIL";
-			actualResult="Could not Enter value: "+Value+" in the "+ElementName;
-			exception= e.getLocalizedMessage();
+			Element.sendKeys(Value);
+			status="PASS";
+			actualResult="Entered value: "+Value+" in the "+ElementName;
+			exception="NA";
 			
 			_output.put("status", status);
 			_output.put("message", actualResult);
 			_output.put("exception", exception);
 			
-			//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+", "+_output.get("message")+",  Exception any:"+_output.get("exception"));
-			//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+actualResult);
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+			
+			//ExtentReportUtility._test.log(LogStatus.PASS, _actualResult);
+			//Assert.assertEquals("PAAS", status);
+			
+			//return true;
+		}
+		else
+		{
+			status="FAIL";
+			actualResult="Could not Enter value: "+Value+" in the "+ElementName;
+			exception="NA";
+			
+			_output.put("status", status);
+			_output.put("message", actualResult);
+			_output.put("exception", exception);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
 			
 			//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+_actualResult);
 			//Assert.assertEquals("PAAS", status);
-			return _output;
-
+			//return _output;
 		}
+	
+		
+		return _output;
 	}
 	
 	/**----------------------------------------------------------------------------------------------
@@ -221,196 +221,41 @@ public class GenericFunctions
 	public static Hashtable<String, String> f_click(WebElement Element, String ElementName)
 	{
 		Hashtable<String, String> _output=new Hashtable<String, String>();
-		try
+		
+		if(Element.isDisplayed() && Element.isEnabled())
 		{
-			if(Element.isDisplayed() && Element.isEnabled())
-			{
-				Element.click();;
-				status="PASS";
-				actualResult="Successfully clicked on the "+ElementName;
-				exception="NA";
+			Element.click();;
+			status="PASS";
+			actualResult="Successfully clicked on the "+ElementName;
+			exception="NA";
 
-				_output.put("status", status);
-				_output.put("message", actualResult);
-				_output.put("exception", exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+", "+_output.get("message")+",  Exception any:"+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.PASS.toString(), actualResult);
-				
-				//ExtentReportUtility._test.log(LogStatus.PASS, _actualResult);
-				//Assert.assertEquals("PAAS", status);
-				return _output;
-			}
-			else
-			{
-				status="FAIL";
-				actualResult="Could not clicked on the "+ElementName;
-				exception="NA";
-				
-				_output.put("status", status);
-				_output.put("message", actualResult);
-				_output.put("exception", exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+", "+_output.get("message")+",  Exception any:"+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+actualResult);
-				
-				//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+_actualResult);
-				//Assert.assertEquals("PAAS", status);
-				return _output;
-			}
+			_output.put("status", status);
+			_output.put("message", actualResult);
+			_output.put("exception", exception);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+			
+			//ExtentReportUtility._test.log(LogStatus.PASS, _actualResult);
+			//Assert.assertEquals("PAAS", status);
+			
 		}
-		catch(Exception e)
+		else
 		{
 			status="FAIL";
 			actualResult="Could not clicked on the "+ElementName;
-			exception= e.getLocalizedMessage();
+			exception="NA";
 			
 			_output.put("status", status);
 			_output.put("message", actualResult);
 			_output.put("exception", exception);
 			
-			//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+", "+_output.get("message")+",  Exception any:"+_output.get("exception"));
-			//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+actualResult);
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
 			
 			//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+_actualResult);
 			//Assert.assertEquals("PAAS", status);
-			return _output;
-
-		}
-	}
-	
-	/**----------------------------------------------------------------------------------------------
-	 * 
-	 * 
-	 *-----------------------------------------------------------------------------------------------*/
-	public static Hashtable<String, String> f_verifyPage(String ExpectedPageName)
-	{
-		String ActualPageName="";
-		Hashtable<String, String> _output=new Hashtable<String, String>();
-		
-		try
-		{
-			ActualPageName=GenericFunctions.driver.getTitle();
-			
-			if(ExpectedPageName.equalsIgnoreCase(ActualPageName))
-			{
-				//Assert.assertEquals(ExpectedPageName, ActualPageName);
-				status="PASS";
-				actualResult= ExpectedPageName+ " is displayed.";
-				exception="NA";
-				
-				_output.put("status", status);
-				_output.put("message", actualResult);
-				_output.put("exception", exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+", "+_output.get("message")+",  Exception any:"+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.PASS.toString(), actualResult);
-				
-				//ExtentReportUtility._test.log(LogStatus.PASS, _actualResult);
-				//Assert.assertEquals("PAAS", status);
-				return _output;
-			}
-			else
-			{
-				//Assert.assertEquals(ExpectedPageName, ActualPageName);
-				status="FAIL";
-				actualResult= ExpectedPageName+ " is not displayed instead "+ActualPageName+" page is displayed";
-				exception="NA";
-
-				_output.put("status", status);
-				_output.put("message", actualResult);
-				_output.put("exception", exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+", "+_output.get("message")+",  Exception any:"+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+actualResult);
-				
-				//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+_actualResult);
-				//Assert.assertEquals("PAAS", status);
-				return _output;
-			}
-			
-		}
-		catch(Exception e)
-		{
-			status="FAIL";
-			actualResult= ExpectedPageName+ " is not displayed instead";
-			exception=e.getLocalizedMessage();
-			
-			_output.put("status", status);
-			_output.put("message", actualResult);
-			_output.put("exception", exception);
-			
-			//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+", "+_output.get("message")+",  Exception any:"+_output.get("exception"));
-			//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+actualResult);
-			
-			//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+_actualResult);
-			//Assert.assertEquals("PAAS", status);
-			return _output;
-
-		}
-	}
-	
-	/**----------------------------------------------------------------------------------------------
-	 * 
-	 * 
-	 *-----------------------------------------------------------------------------------------------*/
-	
-	public static Hashtable<String, String> f_verifyDynamicLink(String linkName)
-	{
-		Hashtable<String, String> _output=new Hashtable<String, String>();
-		String status="";
-		String message="";
-		String exception ="";
-		try
-		{
-			WebElement link=GenericFunctions.driver.findElement(By.linkText(linkName));
-			
-			if(link.isDisplayed())
-			{
-				status="PASS";
-				message=linkName +" is displayed on the page";
-				exception="NA";
-				
-				_output.put("status",status);
-				_output.put("message",message);
-				_output.put("exception",exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.PASS.toString(), message);
-				
-				//ExtentReportUtility._test.log(LogStatus.PASS, message);
-			}
-			else
-			{
-				status="FAIL";
-				message=linkName +" is not displayed on the page";
-				exception="NA";
-				
-				_output.put("status",status);
-				_output.put("message",message);
-				_output.put("exception",exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+message);
-				
-				//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+message);
-			}
-			
-		}
-		catch(Exception e)
-		{
-			status="FAIL";
-			message=linkName +" is not displayed on the page";
-			exception=e.getLocalizedMessage();
-			
-			_output.put("status",status);
-			_output.put("message",message);
-			_output.put("exception",exception);
-			
-			//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-			//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+message);
-			
-			//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+message);
+			//return _output;
 		}
 		
 		return _output;
@@ -419,64 +264,153 @@ public class GenericFunctions
 	/**----------------------------------------------------------------------------------------------
 	 * 
 	 * 
-	 *-----------------------------------------------------------------------------------------------*/
+	 *-----------------------------------------------------------------------------------------------
+	 * @throws Exception */
+	public static Hashtable<String, String> f_verifyPage(String ExpectedPageName) throws Exception
+	{
+		String ActualPageName="";
+		Hashtable<String, String> _output=new Hashtable<String, String>();
+		
 	
-	public static Hashtable<String, String> f_clickOnDynamicLink(String linkName)
+		ActualPageName=GenericFunctions.driver.getTitle();
+		
+		if(ExpectedPageName.equalsIgnoreCase(ActualPageName))
+		{
+			//Assert.assertEquals(ExpectedPageName, ActualPageName);
+			status="PASS";
+			actualResult= ExpectedPageName+ " page is displayed.";
+			exception="NA";
+			
+			_output.put("status", status);
+			_output.put("message", actualResult);
+			_output.put("exception", exception);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+			
+			//ExtentReportUtility._test.log(LogStatus.PASS, _actualResult);
+			//Assert.assertEquals("PAAS", status);
+			//return _output;
+		}
+		else
+		{
+			//Assert.assertEquals(ExpectedPageName, ActualPageName);
+			status="FAIL";
+			actualResult= ExpectedPageName+ " page is not displayed instead "+ActualPageName+" page is displayed";
+			exception="NA";
+
+			_output.put("status", status);
+			_output.put("message", actualResult);
+			_output.put("exception", exception);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+			
+			//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+_actualResult);
+			//Assert.assertEquals("PAAS", status);
+			//return _output;
+		}
+		
+		
+		return _output;
+	}
+	
+	/**----------------------------------------------------------------------------------------------
+	 * 
+	 * 
+	 *-----------------------------------------------------------------------------------------------
+	 * @throws Exception */
+	
+	public static Hashtable<String, String> f_verifyDynamicLink(String linkName) throws Exception
+	{
+		Hashtable<String, String> _output=new Hashtable<String, String>();
+		String status="";
+		String message="";
+		String exception ="";
+		
+		WebElement link=GenericFunctions.driver.findElement(By.linkText(linkName));
+		
+		if(link.isDisplayed())
+		{
+			status="PASS";
+			message=linkName +" is displayed on the page";
+			exception="NA";
+			
+			_output.put("status",status);
+			_output.put("message",message);
+			_output.put("exception",exception);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+			
+			//ExtentReportUtility._test.log(LogStatus.PASS, message);
+		}
+		else
+		{
+			status="FAIL";
+			message=linkName +" is not displayed on the page";
+			exception="NA";
+			
+			_output.put("status",status);
+			_output.put("message",message);
+			_output.put("exception",exception);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+			
+			//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+message);
+		}
+		
+	
+	
+		return _output;
+	}
+	
+	/**----------------------------------------------------------------------------------------------
+	 * 
+	 * 
+	 *-----------------------------------------------------------------------------------------------
+	 * @throws Exception */
+	
+	public static Hashtable<String, String> f_clickOnDynamicLink(String linkName) throws Exception
 	{
 		Hashtable<String, String> _output=new Hashtable<String, String>();
 		
-		try
+	
+		WebElement link=GenericFunctions.driver.findElement(By.linkText(linkName));
+		
+		if(link.isDisplayed() && link.isEnabled())
 		{
-			WebElement link=GenericFunctions.driver.findElement(By.linkText(linkName));
-			
-			if(link.isDisplayed() && link.isEnabled())
-			{
-				link.click();
-				status="PASS";
-				actualResult="Clicked on "+linkName;
-				exception="NA";
-				
-				_output.put("status",status);
-				_output.put("message",actualResult);
-				_output.put("exception",exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.PASS.toString(), message);
-				
-				//ExtentReportUtility._test.log(LogStatus.PASS, message);
-			}
-			else
-			{
-				status="FAIL";
-				actualResult="Could not click on the link "+linkName;
-				exception="NA";
-				
-				_output.put("status",status);
-				_output.put("message",actualResult);
-				_output.put("exception",exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+message);
-				
-				//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+message);
-			}
-			
-		}
-		catch(Exception e)
-		{
-			status="FAIL";
-			actualResult="Could not click on the link "+linkName;
-			exception=e.getLocalizedMessage();
+			link.click();
+			status="PASS";
+			actualResult="Clicked on "+linkName;
+			exception="NA";
 			
 			_output.put("status",status);
 			_output.put("message",actualResult);
 			_output.put("exception",exception);
-		
-			//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-			//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+message);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+			
+			//ExtentReportUtility._test.log(LogStatus.PASS, message);
+		}
+		else
+		{
+			status="FAIL";
+			actualResult="Could not click on the link "+linkName;
+			exception="NA";
+			
+			_output.put("status",status);
+			_output.put("message",actualResult);
+			_output.put("exception",exception);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
 			
 			//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+message);
 		}
+		
 		
 		return _output;
 	}
@@ -515,56 +449,39 @@ public class GenericFunctions
 		String status="";
 		String message="";
 		String exception ="";
-		try
+		
+		if(element.isDisplayed())
 		{
-			
-			if(element.isDisplayed())
-			{
-				status="PASS";
-				message=elementName +" is displayed on the page";
-				exception="NA";
-				
-				_output.put("status",status);
-				_output.put("message",message);
-				_output.put("exception",exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.PASS.toString(), message);
-				
-				//ExtentReportUtility._test.log(LogStatus.PASS, message);
-			}
-			else
-			{
-				status="FAIL";
-				message=elementName +" is not displayed on the page";
-				exception="NA";
-				
-				_output.put("status",status);
-				_output.put("message",message);
-				_output.put("exception",exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+message);
-				
-				//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+message);
-			}
-			
-		}
-		catch(Exception e)
-		{
-			status="FAIL";
-			message=elementName +" is not displayed on the page";
-			exception=e.getLocalizedMessage();
+			status="PASS";
+			message=elementName +" is displayed on the page";
+			exception="NA";
 			
 			_output.put("status",status);
 			_output.put("message",message);
 			_output.put("exception",exception);
 			
-			//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-			//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+message);
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+			
+			//ExtentReportUtility._test.log(LogStatus.PASS, message);
+		}
+		else
+		{
+			status="FAIL";
+			message=elementName +" is not displayed on the page";
+			exception="NA";
+			
+			_output.put("status",status);
+			_output.put("message",message);
+			_output.put("exception",exception);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
 			
 			//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+message);
 		}
+		
+	
 		
 		return _output;
 	}
@@ -581,59 +498,43 @@ public class GenericFunctions
 		String status="";
 		String message="";
 		String exception ="";
-		try
+		
+		if(element.isDisplayed() && element.isEnabled())
 		{
-			if(element.isDisplayed() && element.isEnabled())
-			{
-				Select _drpdown=new Select(element);
-				_drpdown.selectByVisibleText(value);
-				
-				status="PASS";
-				message="Selected: '"+value+"' in the dropdown "+elementname;
-				exception="NA";
-				
-				_output.put("status",status);
-				_output.put("message",message);
-				_output.put("exception",exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.PASS.toString(), message);
-				
-				//ExtentReportUtility._test.log(LogStatus.PASS, message);
-			}
-			else
-			{
-				status="FAIL";
-				message="Could not Select: '"+value+"' in the dropdown "+elementname;
-				exception="NA";
-				
-				_output.put("status",status);
-				_output.put("message",message);
-				_output.put("exception",exception);
-				
-				//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-				//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+message);
-				
-				//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+message);
-			}
+			Select _drpdown=new Select(element);
+			_drpdown.selectByVisibleText(value);
 			
-		}
-		catch(Exception e)
-		{
-			status="FAIL";
-			message="Could not select '"+value+"' in the dropdown "+elementname;
-			exception=e.getLocalizedMessage();
+			status="PASS";
+			message="Selected: '"+value+"' in the dropdown "+elementname;
+			exception="NA";
 			
 			_output.put("status",status);
 			_output.put("message",message);
 			_output.put("exception",exception);
-		
-			//LogOperations.f_writeLog(GenericOperations.StepID +" "+_output.get("status")+" "+GenericOperations.StepDescription+" "+_output.get("message")+" "+_output.get("exception"));
-			//ReportUtility.f_writeLog(LOGSTATUS.FAIL.toString(), "FAIL: "+message);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+			
+			//ExtentReportUtility._test.log(LogStatus.PASS, message);
+		}
+		else
+		{
+			status="FAIL";
+			message="Could not Select: '"+value+"' in the dropdown "+elementname;
+			exception="NA";
+			
+			_output.put("status",status);
+			_output.put("message",message);
+			_output.put("exception",exception);
+			
+			//VerifyResults.f_isPASS(status, actualResult);
+			//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
 			
 			//ExtentReportUtility._test.log(LogStatus.FAIL, "FAIL: "+message);
 		}
 		
+	
+	
 		return _output;
 	}
 	
@@ -646,24 +547,67 @@ public class GenericFunctions
 	{
 		Hashtable<String, String> _output=new Hashtable<String, String>();
 		
-		try
-		{
-			((JavascriptExecutor)GenericFunctions.driver).executeScript(script, element);
-			
-			_output.put("status", "PASS");
-			_output.put("message", message+": successfull");
-			_output.put("exception", "NA");
-			
-		}
-		catch(Exception e)
-		{
-			_output.put("status", "FAIL");
-			_output.put("message", message+": not successfull");
-			_output.put("exception", e.getLocalizedMessage());
-		}
+	
+		((JavascriptExecutor)GenericFunctions.driver).executeScript(script, element);
+		
+		status="PASS";
+		actualResult=message+" is successfull";
+		exception="NA";
+		
+		_output.put("status", "PASS");
+		_output.put("message", message+": successfull");
+		_output.put("exception", "NA");
+		
+		//VerifyResults.f_isPASS(status, actualResult);
+		//LogUtility.f_writeResults(GenericFunctions.StepID+", "+ status+": "+actualResult);
+		
 		
 		return _output;
 	}
 	
 
+	/**
+	 * 
+	 * 
+	 */
+	public static Hashtable<String, String> f_selectRadioButton(List<WebElement> elements, String elementname, String value)
+	{
+		Hashtable<String, String> _output=new Hashtable<String, String>();
+		String status="";
+		String message="";
+		String exception ="";
+		
+		int flag=0;
+		
+		for(WebElement element:elements)
+		{
+			if(element.getAttribute("value").equalsIgnoreCase(value))
+			{
+				element.click();
+				flag=1;
+				break;
+			}
+		}
+		
+		if(flag==1)
+		{
+			status="PASS";
+			message="Selected: '"+value+"' in the radiobutton "+elementname;
+			exception="NA";
+			
+			_output.put("status",status);
+			_output.put("message",message);
+			_output.put("exception",exception);
+		}
+		else
+		{
+			status="FAIL";
+			message="NOT Selected: '"+value+"' in the radiobutton "+elementname;
+			exception="NA";
+		}
+		
+		return _output;
+	}
+	 
+	
 }

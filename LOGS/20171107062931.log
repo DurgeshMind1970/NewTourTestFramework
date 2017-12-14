@@ -1,0 +1,154 @@
+[20171214045614] SKIPPED TESTCASE: initializerTest
+[20171214045615] Test Case Completed
+[20171214045615] Started Test Case: tC1_RegisterToTheSite
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Register
+PASS , StepID 2: Register: Mercury Tours page is displayed.
+PASS , StepID 3: Entered value: f-20171214045623 in the FirstName
+PASS , StepID 3: Entered value: l-20171214045623 in the LastName
+PASS , StepID 3: Entered value: 8888888888 in the Phone
+PASS , StepID 3: Entered value: user@newtour.com in the Email
+PASS , StepID 3: Entered value: Rajeev gandhi Park, Phase 1, Hinjewadi in the Address
+PASS , StepID 3: Entered value: Pune in the City
+PASS , StepID 3: Entered value: 411057 in the Postal Code
+PASS , StepID 3: Selected: 'INDIA' in the dropdown Country dropdown
+PASS , StepID 3: Entered value: Maharashtra in the State
+PASS , StepID 3: Entered value: user20171214045623 in the Username
+PASS , StepID 3: Entered value: pass20171214045623 in the Password
+PASS , StepID 3: Entered value: pass20171214045623 in the Confirm Password
+PASS , StepID 3: Successfully clicked on the Submit
+PASS , StepID 3: Entered data successfully
+[20171214045630] Test Case Completed
+[20171214045630] Started Test Case: tC2_loginWithValidCredentials
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Sign On
+PASS , StepID 2: Sign-on: Mercury Tours page is displayed.
+PASS , StepID 3: Entered value: user20171214045623 in the Username
+PASS , StepID 3: Entered value: pass20171214045623 in the Password
+PASS , StepID 3: Successfully clicked on the Login
+PASS , StepID 3: Logged in successfully
+[20171214045651] Test Case Completed
+[20171214045651] Started Test Case: tC3_ProfileEdit
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Sign On
+PASS , StepID 2: Sign-on: Mercury Tours page is displayed.
+PASS , StepID 3: Entered value: user20171214045623 in the Username
+PASS , StepID 3: Entered value: pass20171214045623 in the Password
+PASS , StepID 3: Successfully clicked on the Login
+PASS , StepID 3: Logged in successfully
+PASS , StepID 4: Successfully clicked on the PROFILE
+PASS , StepID 5: Register: Mercury Tours page is displayed.
+PASS , StepID 6: Entered value: f-20171214045703 in the FirstName
+PASS , StepID 6: Entered value: l-20171214045703 in the LastName
+PASS , StepID 6: Entered value: 8888888888 in the Phone
+PASS , StepID 6: Entered value: user@newtour.com in the Email
+PASS , StepID 6: Entered value: Rajeev gandhi Park, Phase 1, Hinjewadi in the Address
+PASS , StepID 6: Entered value: Pune in the City
+PASS , StepID 6: Entered value: 411057 in the Postal Code
+PASS , StepID 6: Selected: 'INDIA' in the dropdown Country dropdown
+PASS , StepID 6: Entered value: Maharashtra in the State
+PASS , StepID 6: Successfully clicked on the Submit
+PASS , StepID 6: Profile data saved successfully
+PASS , StepID 7: Successfully clicked on the SIGN-OFF
+PASS , StepID 8: Successfully clicked on the Sign On
+PASS , StepID 9: Sign-on: Mercury Tours page is displayed.
+PASS , StepID 10: Entered value: user20171214045623 in the Username
+PASS , StepID 10: Entered value: pass20171214045623 in the Password
+PASS , StepID 10: Successfully clicked on the Login
+PASS , StepID 10: Logged in successfully
+PASS , StepID 11: Successfully clicked on the PROFILE
+PASS , StepID 12: Register: Mercury Tours page is displayed.
+FAIL , StepID 13: Verify if edited profile is displayed
+[20171214045714] Test Case Completed
+[20171214045714] Started Test Case: tC4_FindaFlight
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Sign On
+PASS , StepID 2: Sign-on: Mercury Tours page is displayed.
+PASS , StepID 3: Entered value: user20171214045623 in the Username
+PASS , StepID 3: Entered value: pass20171214045623 in the Password
+PASS , StepID 3: Successfully clicked on the Login
+PASS , StepID 3: Logged in successfully
+PASS , StepID 4: Selected: 'roundtrip' in the radiobutton TripType
+PASS , StepID 4: Selected: '2' in the dropdown Passengers
+PASS , StepID 4: Selected: 'New York' in the dropdown DepartFrom
+PASS , StepID 4: Selected: 'Paris' in the dropdown Arriving port
+PASS , StepID 4: Successfully clicked on the Continue
+PASS , StepID 4: Select Flight page is displayed
+[20171214045726] Test Case Completed
+[20171214050452] SKIPPED TESTCASE: initializerTest
+[20171214050453] Test Case Completed
+[20171214050453] Started Test Case: tC1_RegisterToTheSite
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Register
+PASS , StepID 2: Register: Mercury Tours page is displayed.
+PASS , StepID 3: Entered value: f-20171214050506 in the FirstName
+PASS , StepID 3: Entered value: l-20171214050506 in the LastName
+PASS , StepID 3: Entered value: 8888888888 in the Phone
+PASS , StepID 3: Entered value: user@newtour.com in the Email
+PASS , StepID 3: Entered value: Rajeev gandhi Park, Phase 1, Hinjewadi in the Address
+PASS , StepID 3: Entered value: Pune in the City
+PASS , StepID 3: Entered value: 411057 in the Postal Code
+PASS , StepID 3: Selected: 'INDIA' in the dropdown Country dropdown
+PASS , StepID 3: Entered value: Maharashtra in the State
+PASS , StepID 3: Entered value: user20171214050506 in the Username
+PASS , StepID 3: Entered value: pass20171214050506 in the Password
+PASS , StepID 3: Entered value: pass20171214050506 in the Confirm Password
+PASS , StepID 3: Successfully clicked on the Submit
+PASS , StepID 3: Entered data successfully
+[20171214050519] Test Case Completed
+[20171214050519] Started Test Case: tC2_loginWithValidCredentials
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Sign On
+PASS , StepID 2: Sign-on: Mercury Tours page is displayed.
+PASS , StepID 3: Entered value: user20171214050506 in the Username
+PASS , StepID 3: Entered value: pass20171214050506 in the Password
+PASS , StepID 3: Successfully clicked on the Login
+PASS , StepID 3: Logged in successfully
+[20171214050528] Test Case Completed
+[20171214050528] Started Test Case: tC3_ProfileEdit
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Sign On
+PASS , StepID 2: Sign-on: Mercury Tours page is displayed.
+PASS , StepID 3: Entered value: user20171214050506 in the Username
+PASS , StepID 3: Entered value: pass20171214050506 in the Password
+PASS , StepID 3: Successfully clicked on the Login
+PASS , StepID 3: Logged in successfully
+PASS , StepID 4: Successfully clicked on the PROFILE
+PASS , StepID 5: Register: Mercury Tours page is displayed.
+PASS , StepID 6: Entered value: f-20171214050556 in the FirstName
+PASS , StepID 6: Entered value: l-20171214050556 in the LastName
+PASS , StepID 6: Entered value: 8888888888 in the Phone
+PASS , StepID 6: Entered value: user@newtour.com in the Email
+PASS , StepID 6: Entered value: Rajeev gandhi Park, Phase 1, Hinjewadi in the Address
+PASS , StepID 6: Entered value: Pune in the City
+PASS , StepID 6: Entered value: 411057 in the Postal Code
+PASS , StepID 6: Selected: 'INDIA' in the dropdown Country dropdown
+PASS , StepID 6: Entered value: Maharashtra in the State
+PASS , StepID 6: Successfully clicked on the Submit
+PASS , StepID 6: Profile data saved successfully
+PASS , StepID 7: Successfully clicked on the SIGN-OFF
+PASS , StepID 8: Successfully clicked on the Sign On
+PASS , StepID 9: Sign-on: Mercury Tours page is displayed.
+PASS , StepID 10: Entered value: user20171214050506 in the Username
+PASS , StepID 10: Entered value: pass20171214050506 in the Password
+PASS , StepID 10: Successfully clicked on the Login
+PASS , StepID 10: Logged in successfully
+PASS , StepID 11: Successfully clicked on the PROFILE
+PASS , StepID 12: Register: Mercury Tours page is displayed.
+FAIL , StepID 13: Verify if edited profile is displayed
+[20171214050634] Test Case Completed
+[20171214050634] Started Test Case: tC4_FindaFlight
+PASS , StepID 0: Application has been opened successfully
+PASS , StepID 1: Successfully clicked on the Sign On
+PASS , StepID 2: Sign-on: Mercury Tours page is displayed.
+PASS , StepID 3: Entered value: user20171214050506 in the Username
+PASS , StepID 3: Entered value: pass20171214050506 in the Password
+PASS , StepID 3: Successfully clicked on the Login
+PASS , StepID 3: Logged in successfully
+PASS , StepID 4: Selected: 'roundtrip' in the radiobutton TripType
+PASS , StepID 4: Selected: '2' in the dropdown Passengers
+PASS , StepID 4: Selected: 'New York' in the dropdown DepartFrom
+PASS , StepID 4: Selected: 'Paris' in the dropdown Arriving port
+PASS , StepID 4: Successfully clicked on the Continue
+PASS , StepID 4: Select Flight page is displayed
+[20171214050648] Test Case Completed
